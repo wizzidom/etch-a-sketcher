@@ -1,7 +1,7 @@
 const container = document.querySelector('.container');
 function randomColor() {
-    let color = ["black", "white", "gray", "silver", "maroon", "red", "purple", "fushsia", "green", "lime", "olive", "yellow", "navy", "blue", "teal", "aqua"];
-    return color[Math.round(Math.random()*15)];
+    let color = [ "gray", "silver", "maroon", "red", "purple", "fushsia", "green", "lime", "olive", "yellow", "navy", "blue", "teal", "aqua"];
+    return color[Math.round(Math.random()*14)];
   } 
   
 function getNumber(){
