@@ -1,26 +1,60 @@
 const container = document.querySelector('.container');
 function randomColor() {
-    let color = [];
-    for (let i = 0; i < 3; i++) {
-      color.push(Math.floor(Math.random() * 256));
-    }
-    return 'rgb(' + color.join(', ') + ')';
+    let color = ["black", "white", "gray", "silver", "maroon", "red", "purple", "fushsia", "green", "lime", "olive", "yellow", "navy", "blue", "teal", "aqua"];
+    return color[Math.round(Math.random()*15)];
   } 
   
-
-var grids = [];
-
-for (let i = 0; i < 16; i++) {
-    grids[i] = document.createElement('div');
-    grids[i].classList.add('box');
-    grids[i].style.width = '50px';
-    grids[i].style.height = '50px';
-    grids[i].style.border = '1px solid red';
-    container.appendChild(grids[i]);
+function getNumber(){
+    container.innerHTML = '';
+   var grids = [];
+   
+   var inputs = parseInt(prompt("Enter number of rows, should be less than 100 "));
+   var gridSize = (640/inputs);
+   var input = inputs * inputs
+   if (inputs <= 100){
+      for (let i = 0; i < input; i++) {
+        grids[i] = document.createElement('div');
+        grids[i].classList.add('box');
+        grids[i].style.minWidth = `${gridSize}px`;
+        grids[i].style.minHeight = `${gridSize}px`;
+        grids[i].style.border = '1px solid red';
+        container.appendChild(grids[i]);
+        
+    }
+    var box = document.getElementsByClassName('box');
+    var arr = [...box];
+    for (let j = 0; j < arr.length; j++) {
+      
+        arr[j].addEventListener("mouseover",()=>{
+          arr[j].style.backgroundColor = randomColor();
+        
+       
+        })
+      
+    }
+    console.log(randomColor())
     
-}
-var box = document.querySelector('box');
-box.addEventListener("mouseover", ()=>{
-    box.style.backgroundColor = randomColor()
-})
-console.log(grids)
+ 
+
+   }
+   else{
+    alert("Invalid number");
+    container.innerHTML = '';
+   }
+
+  }
+
+  
+
+
+
+
+           
+  
+  
+
+
+  
+
+
+
